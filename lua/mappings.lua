@@ -8,10 +8,16 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 map("n", "<leader>db", "<cmd> DapToggleBreakpoint <cr>", {desc = "Add breakpoint at line"})
 map("n", "<leader>dus", function ()
-  local widgets = require("dap.ui.widgets");
-  local sidebar = widgets.sidebar(widgets.scopes);
-  sidebar.open();
+  --local widgets = require("dap.ui.widgets");
+  --local sidebar = widgets.sidebar(widgets.scopes);
+  --sidebar.open();
+  local dapui = require("dapui");
+  dapui.open();
 end, { desc ="Open debugging sidebar"})
+map("n", "<leader>duc", function ()
+  local dapui = require("dapui");
+  dapui.close();
+end, {desc = "close debugging ui"})
 map("n", "<leader><Down>", "<cmd> DapStepOver <cr>", {desc = "debug step over"})
 map("n", "<leader><Right>", "<cmd> DapStepInto <cr>", {desc = "debug step into"})
 map("n", "<leader><Left>", "<cmd> DapStepOut <cr>", {desc = "debug step out"})
